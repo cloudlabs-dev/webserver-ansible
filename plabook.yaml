@@ -1,0 +1,20 @@
+- name: Install and start web server
+  hosts: all
+  tasks:
+    - name: Install httpd package
+      dnf:
+        name: httpd
+        state: latest
+    - name: Install php package
+      dnf:
+        name: php
+        state: latest
+    - name: Install git package
+      dnf:
+        name: git
+        state: latest
+    - name: Start and enable Web Server
+      service:
+        name: httpd
+        state: started
+        enabled: yes
